@@ -88,6 +88,14 @@ class Sorting_Algorithm():
         if array == "":
             self.error("Input is empty! Please enter some numbers.")
             return None
+        elif algorithm == "":
+            self.error("Algorithm is empty! Please choose an algorithm.")
+            return None
+        elif order == "":
+            self.error("Mode is empty! Please choose a mode.")
+            return None
+        
+        array = array.replace(" ","")
         array = array.split(",")
         
         try:
