@@ -1,6 +1,7 @@
 import customtkinter
 import random
 from bubble_sort import bubble_sort
+from insertion_sort import insertion_sort
 
 class Sorting_Algorithm():
     def __init__(self) -> None: 
@@ -22,7 +23,7 @@ class Sorting_Algorithm():
         self.labelAlgo = customtkinter.CTkLabel(master=self.input_tab1, text="Algorithm :", font=("Times New Roman", 20),anchor="center")
         self.labelAlgo.grid(row=0,column=0,padx=(40,20),pady=20)
         
-        self.choose_algorithm = customtkinter.CTkComboBox(master=self.input_tab1,state="readonly",values=["Bubble Sort"],width=200)
+        self.choose_algorithm = customtkinter.CTkComboBox(master=self.input_tab1,state="readonly",values=["Bubble Sort","Insertion Sort"],width=200)
         self.choose_algorithm.grid(row=0,column=1,padx=(40,20),pady=20)
 
         self.labelMode =  customtkinter.CTkLabel(master=self.input_tab1, text="Mode :", font=("Times New Roman", 20))
@@ -106,6 +107,9 @@ class Sorting_Algorithm():
         
         if algorithm == "Bubble Sort":
             array , process = bubble_sort(array,order)
+            self.result.configure(state="normal")
+        elif algorithm == "Insertion Sort": 
+            array , process = insertion_sort(array,order)
             self.result.configure(state="normal")
             
         self.result.delete("0.0","end")
